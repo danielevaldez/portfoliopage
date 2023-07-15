@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>• Daniel Valdez • </title>
+    <meta name="description" content="A classic company or blog layout with a sidebar."/>
+    <link rel="shortcut icon" href="https://picocss.com/favicon.ico"/>
+    <link rel="canonical" href="https://picocss.com/examples/company/"/>
+    <!-- Pico.css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono"/>
+    <style>
+        /* Global CSS variables */
+        :root {
+            --spacing-company: 3rem;
+            --font-weight: 400;
+            --border-radius: 0;
+        }
+
+        /* Typography */
+        h2,
+        h3,
+        hgroup > :last-child,
+        .shuffle-text {
+            font-weight: 200;
+            font-family: 'DM Mono', monospace;
+        }
+
+        small {
+            color: var(--muted-color);
+            font-family: 'DM Mono', monospace;
+        }
+
+        /* Header */
+        .hero {
+            background-color: #394046;
+            background-image: url("img/sascha-eremin-DNQ-M93tHmA-unsplash-3000x1000.jpg");
+            background-position: center;
+            background-size: cover;
+        }
+
+        header {
+            padding: var(--spacing-company) 0;
+        }
+
+        header hgroup > :last-child {
+            color: var(--h3-color);
+        }
+
+        header hgroup {
+            margin-bottom: var(--spacing-company);
+        }
+
+        /* Nav */
+        summary[role="link"].contrast:is([aria-current], :hover, :active, :focus) {
+            background-color: transparent;
+            color: var(--contrast-hover);
+        }
+
+        /* Main */
+        @media (min-width: 992px) {
+            main .grid {
+                grid-column-gap: var(--spacing-company);
+                grid-template-columns: auto 25%;
+            }
+        }
+
+        form.grid {
+            grid-row-gap: 0;
+        }
+
+        /* Aside nav */
+        aside img {
+            margin-bottom: 0.25rem;
+        }
+
+        aside p {
+            margin-bottom: var(--spacing-company);
+            line-height: 1.25;
+        }
+
+        /* Subscribe */
+        hgroup h2,
+        hgroup h3 {
+            font-family: 'DM Mono', monospace;
+        }
+
+        /* Shuffle effect */
+        .shuffle-link {
+            position: relative;
+        }
+
+        
+    </style>
+    <!-- Custom styles for this example -->
+    <link rel="stylesheet" href="custom.css"/>
+</head>
+<body>
+    <!-- Hero -->
+    <div class="hero" data-theme="dark">
+        <nav class="container-fluid">
+            <ul>
+                <li>
+                    <a href="./" class="contrast" onclick="event.preventDefault()"><strong>Home</strong></a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <details role="list" dir="rtl">
+                        <summary aria-haspopup="listbox" role="link" class="contrast">Theme</summary>
+                        <ul role="listbox">
+                            <li><a href="#" data-theme-switcher="auto">Auto</a></li>
+                            <li><a href="#" data-theme-switcher="light">Light</a></li>
+                            <li><a href="#" data-theme-switcher="dark">Dark</a></li>
+                        </ul>
+                    </details>
+                </li>
+                <li>
+                    <details role="list" dir="rtl">
+                        <summary aria-haspopup="listbox" role="link" class="contrast">Examples (v1)</summary>
+                        <ul role="listbox">
+                            <li><a href="../v1-preview/">Preview</a></li>
+                            <li><a href="../v1-preview-rtl/">Right-to-left</a></li>
+                            <li><a href="../v1-classless/">Classless</a></li>
+                            <li><a href="../v1-basic-template/">Basic template</a></li>
+                            <li><a href="../v1-company/">Company</a></li>
+                            <li><a href="../v1-google-amp/">Google Amp</a></li>
+                            <li><a href="../v1-sign-in/">Sign in</a></li>
+                            <li><a href="../v1-bootstrap-grid/">Bootstrap grid</a></li>
+                        </ul>
+                    </details>
+                </li>
+            </ul>
+        </nav>
+        <header class="container">
+            <hgroup>
+                <h1 class="shuffle-link" style="font-family: 'DM Mono', monospace;">
+                    Hello, I'm <span class="shuffle-text">Daniel Valdez</span>.
+                </h1>
+                <h2>Full-Stack Software Developer</h2>
+            </hgroup>
+            <p><a href="#" role="button" onclick="event.preventDefault()">Resume</a></p>
+        </header>
+    </div>
+    <!-- ./ Hero -->
+
+    <!-- Main -->
+    <main class="container">
+        <div class="grid">
+            <section>
+                <hgroup>
+                    <h2>About Me</h2>
+                    <h3>Quisque mi est</h3>
+                </hgroup>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lobortis est vel
+                    velit bibendum ultrices. Sed aliquam tortor vel odio fermentum ullamcorper eu vitae
+                    neque. Sed non diam at tellus venenatis viverra. Vestibulum et leo laoreet arcu tempor
+                    eleifend venenatis ac leo. Pellentesque euismod justo sed nisl sollicitudin varius. Duis
+                    venenatis nisl sit amet ante rutrum posuere. Etiam nec ullamcorper leo, sed placerat
+                    mauris.
+                </p>
+                <figure>
+                    <img src="img/ashim-d-silva-3Ijt7UkSBYE-unsplash-1500x750.jpg" alt="Architecture"/>
+                    <figcaption>
+                        Image from <a href="https://unsplash.com/photos/3Ijt7UkSBYE" target="_blank">unsplash.com</a>
+                    </figcaption>
+                </figure>
+                <h3>Nulla augue metus</h3>
+                <p>
+                    Pacilisis sed ante ut, posuere volutpat quam. Maecenas maximus blandit mi ac finibus.
+                    Proin quis lacinia tellus. Aliquam erat volutpat. Aliquam erat volutpat. Phasellus
+                    suscipit nisi augue, id accumsan tortor auctor ut. Duis odio arcu, egestas nec nulla
+                    vel, fermentum bibendum ex.
+                </p>
+                <h3>Sed purus sapien, porta a cursus sed, maximus et metus.</h3>
+                <p>
+                    Phasellus molestie ante sed massa bibendum, eget tempus ex sollicitudin. Vestibulum
+                    libero nulla, porttitor nec faucibus et, scelerisque eget quam. Nullam finibus tempor
+                    dui, vel congue urna condimentum ac. Fusce ultricies mauris justo, nec vulputate mauris
+                    pulvinar eu. Sed tempus ligula lorem, at tincidunt risus mollis non. Quisque et turpis
+                    sit amet sapien gravida ullamcorper in eu velit. Curabitur luctus ornare finibus. Proin
+                    tempor nulla sagittis est fermentum dapibus. Vestibulum posuere mattis congue. Ut
+                    porttitor id sem euismod tristique. Quisque mi est, posuere nec lorem eu, vulputate
+                    vehicula diam. Nullam scelerisque, libero posuere efficitur bibendum, urna odio finibus
+                    lorem, sed volutpat dolor ligula in dolor. Suspendisse suscipit efficitur neque, ut
+                    porta tellus mollis vel. Nam consequat arcu ac tellus porta, nec egestas orci sodales.
+                </p>
+            </section>
+
+            <aside>
+                <a href="#" aria-label="Example" onclick="event.preventDefault()">
+                    <img src="img/maarten-deckers-T5nXYXCf50I-unsplash-1500x750.jpg" alt="Architecture"/>
+                </a>
+                <p>
+                    <a href="#" onclick="event.preventDefault()">Donec sit amet</a><br/>
+                    <small>Class aptent taciti sociosqu ad litora torquent per conubia nostra</small>
+                </p>
+                <a href="#" aria-label="Example" onclick="event.preventDefault()">
+                    <img src="img/daniel-von-appen-tb4heMa-ZRo-unsplash-1500-750.jpg" alt="Architecture"/>
+                </a>
+                <p>
+                    <a href="#" onclick="event.preventDefault()">Suspendisse potenti</a><br/>
+                    <small>Proin non condimentum tortor. Donec in feugiat sapien.</small>
+                </p>
+                <a href="#" aria-label="Example" onclick="event.preventDefault()">
+                    <img src="img/matthew-hamilton-Ru3Ap8TNcsk-unsplash-1500-750.jpg" alt="Architecture"/>
+                </a>
+                <p>
+                    <a href="#" onclick="event.preventDefault()">Nullam lobortis placerat aliquam</a><br/>
+                    <small>Maecenas vitae nibh blandit dolor commodo egestas vel eget neque. Praesent semper
+                        justo orci, vel imperdiet mi auctor in.</small>
+                </p>
+            </aside>
+        </div>
+    </main>
+    <!-- ./ Main -->
+
+    <!-- Subscribe -->
+    <section aria-label="Subscribe example">
+        <div class="container">
+            <article>
+                <hgroup>
+                    <h2>Contact Me</h2>
+                    <h3>send me an email.</h3>
+                </hgroup>
+                <form class="grid">
+                    <input type="text" id="firstname" name="firstname" placeholder="First name"
+                           aria-label="First name" required/>
+                    <input type="email" id="email" name="email" placeholder="Email address"
+                           aria-label="Email address" required/>
+                    <button type="submit" onclick="event.preventDefault()">Send</button>
+                </form>
+            </article>
+        </div>
+    </section>
+    <!-- ./ Subscribe -->
+
+    <!-- Footer -->
+    <footer class="container">
+        <small>Built with <a href="https://picocss.com">Pico</a> •
+            <a href="https://github.com/picocss/examples/tree/master/v1-company/">Source code</a></small>
+    </footer>
+    <!-- ./ Footer -->
+
+    <!-- Minimal theme switcher -->
+    <script src="js/minimal-theme-switcher.js"></script>
+
+    <!-- Shuffle script -->
+    <script src="shuffle.js"></script>
+    <script>
+        const shuffleText = document.querySelector('.shuffle-text');
+        const shuffle = new ShuffleText(shuffleText);
+        shuffle.start();
+    </script>
+</body>
+</html>

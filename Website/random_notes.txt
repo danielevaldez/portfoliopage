@@ -1,0 +1,82 @@
+// Select all elements with the class 'shuffle-link'
+const links = document.querySelectorAll('.shuffle-link');
+
+// Iterate over each 'shuffle-link' element
+links.forEach(link => {
+    // Get the original text content of the link
+    const originalText = link.textContent;
+    // Split the original text into an array of individual characters
+    const letters = originalText.split('');
+    let intervalId;
+
+    // Add event listener for when the mouse enters the link
+    link.addEventListener('mouseenter', () => {
+        let counter = 0;
+        const shuffleCount = 2; // Number of shuffling cycles
+        const shuffleInterval = 70; // Interval between each shuffle step in milliseconds
+
+        // Start an interval to perform the shuffling effect
+        intervalId = setInterval(() => {
+            // Map over each character in the 'letters' array
+            const shuffledText = letters.map((char, index) => {
+                if (char.match(/[a-zA-Z0-9]/)) {
+                    // Generate a random character
+                    const randomCharacter = getRandomCharacter();
+                    // Calculate the cycles to revert for the specific character
+                    const cyclesToRevert = index - Math.floor(counter / shuffleCount);
+                    // If the counter has reached the revert cycles, return the original character
+                    if (counter >= cyclesToRevert * shuffleCount) {
+                        return originalText[index];
+                    }
+                    // Otherwise, return the random character
+                    return randomCharacter;
+                }
+                // Return non-alphanumeric characters as they are
+                return char;
+            }).join(''); // Join the shuffled characters back into a string
+
+            // Set the shuffled text as the link's content
+            link.textContent = shuffledText;
+            counter++;
+            // If the counter has exceeded the total shuffle steps, stop the interval and restore the original text
+            if (counter >= (shuffleCount + 1) * letters.length) {
+                clearInterval(intervalId);
+                link.textContent = originalText;
+            }
+        }, shuffleInterval); // Set the interval for each shuffle step
+    });
+
+    // Add event listener for when the mouse leaves the link
+    link.addEventListener('mouseleave', () => {
+        clearInterval(intervalId); // Clear the shuffle interval
+        link.textContent = originalText; // Restore the original text content
+    });
+});
+
+// Function to get a random character from the character pool
+function getRandomCharacter() {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    return characters[randomIndex];
+}
+------------ OG shuffle
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shuffler</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono">
+    <script type="module" src="shuffle.js"></script>
+</head>
+
+<body>
+    <div id="content" style="position: relative; width: 100%; height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <h1 style="font-family: 'DM Mono', monospace; text-transform: uppercase; font-size: 2rem; margin:0;">
+            <a href="main.html" class="shuffle-link" style="color:rgb(0, 0, 0); text-decoration: none;">Hello, I'm Daniel Valdez.</a>
+        </h1>
+    </div>
+</body>
+
+</html>
