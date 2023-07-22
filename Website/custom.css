@@ -8,7 +8,7 @@
   /* Typography */
   h2,
   h3,
-  hgroup > :last-child {
+  hgroup > :last-child,.shuffle-link {
     font-weight: 200;
     font-family: 'DM Mono', monospace;
   }
@@ -21,7 +21,7 @@
   /* Header */
   .hero {
     background-color: #394046;
-    background-image: url("img/sascha-eremin-DNQ-M93tHmA-unsplash-3000x1000.jpg");
+    background-image: url("img/banner.jpg");
     background-position: center;
     background-size: cover;
   }
@@ -72,4 +72,10 @@
   hgroup h3 {
     font-family: 'DM Mono', monospace;
   }
+
+  .shuffle-link {
+    position: relative;
+}
+
+
   
